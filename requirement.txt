@@ -1,0 +1,7 @@
+asgiref @ file:///home/conda/feedstock_root/build_artifacts/asgiref_1652752042988/work
+Django @ file:///home/conda/feedstock_root/build_artifacts/django_1662378518916/work
+Faker==14.2.0
+python-dateutil==2.8.2
+six==1.16.0
+sqlparse @ file:///home/conda/feedstock_root/build_artifacts/sqlparse_1631317292236/work
+typing_extensions @ file:///home/conda/feedstock_root/build_artifacts/typing_extensions_1656706066251/work
