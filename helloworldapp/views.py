@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from helloworldapp.models import Person
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect
+from .forms import FormPerson
 
 
 # Create your views here.
@@ -47,10 +50,6 @@ def foo8(request):  # datatable
     return render(request, "helloworld7.html")
 
 
-from django.shortcuts import redirect
-from .forms import FormPerson
-
-
 def formsearch(request):
     if request.method == "POST":
         form = FormPerson(request.POST)
@@ -66,3 +65,9 @@ def formresult(request, name):
     html = """<html><h1>Search result</h1><body>
     This is the name that was searched: {}</body></html>""".format(name)
     return HttpResponse(html)
+
+
+@login_required(login_url='/login/')
+def foo_protected(request):
+    return render(request, "foo_protected.html",
+                  {"name": "aurano"})

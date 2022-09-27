@@ -16,7 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from helloworldapp.views import foo, foo2, foo3, foo4, foo5, foo6, foo7, foo8, formsearch, formresult
+from helloworldapp.views import foo, foo2, foo3, foo4, foo5, foo6, foo7, foo8, formsearch, formresult, foo_protected
+from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
@@ -29,6 +30,10 @@ urlpatterns = [
     path('helloworld7/', foo7),
     # SEANCE 3
     path('helloworld8/', foo8),  # datatable
-    path('formsearch/', formsearch),
+    path('formsearch/', formsearch),  # formsearch
     path('formresult/<str:name>/', formresult),
+    path('helloworld_protected/', foo_protected),  # protected
+    path('login/', LoginView.as_view(), name='login'),
+    path("logout/", LogoutView.as_view(), name='logout'),
+
 ]
