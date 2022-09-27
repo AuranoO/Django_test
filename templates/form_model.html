@@ -1,0 +1,12 @@
+<html>
+<body>
+{% block content %}
+    <h1>Example of Search Form</h1>
+    <p>Enter a name</p>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock %}
+</body>
+</html>

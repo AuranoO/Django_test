@@ -1,0 +1,10 @@
+{% extends "helloworld2.html" %}
+{% block body %}
+    {% load static %}
+    <h1> this is my title using CSS</h1>
+    <img src={% static "madara.jpg"%}> <br>
+    <button type="button" onclick='document.getElementById("demo").innerHTML = "Hello JavaScript!"'>Click Me!</button> <br>
+    <a href="{% url 'helloworld5' %}">List of User</a> <br>
+    <a href="{% url 'helloworld' %}">Hello page</a>
+
+{% endblock %}
