@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+        <title>serverSide</title>
+    </head>
+	<body>
+		<h1>Items</h1>
+		<hr>
+		<table class="display" id="items-table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Name</th>
+					<th>Age</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+
+	<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+		<script language="javascript">
+			$(document).ready(function () {
+				$('#items-table').dataTable({
+					serverSide: true,
+					sAjaxSource: {% url "data" %},  // new url
+                                        columns: [
+                                            {name: "id", data: 0},
+                                            {name: "name", data: 1},
+                                            {name:"age", data: 2}
+                                        ],
+				});
+			});
+		</script>
+	</body>
+</html>

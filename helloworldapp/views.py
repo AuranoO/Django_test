@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
 from helloworldapp.models import Person
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
 from .forms import FormPerson
+from django_serverside_datatable.views import ServerSideDatatableView
 
 
 # Create your views here.
@@ -71,3 +71,12 @@ def formresult(request, name):
 def foo_protected(request):
     return render(request, "foo_protected.html",
                   {"name": "aurano"})
+
+
+class ItemListView(ServerSideDatatableView):
+    queryset = Person.objects.all()
+    columns = ['id', 'name', 'age']
+
+
+def serverside_print(request):
+    return render(request, "serversidedatatable.html")

@@ -16,7 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from helloworldapp.views import foo, foo2, foo3, foo4, foo5, foo6, foo7, foo8, formsearch, formresult, foo_protected
+from helloworldapp.views import foo, foo2, foo3, foo4, foo5, foo6, foo7, foo8, formsearch, formresult, foo_protected, \
+    ItemListView, serverside_print
 from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
@@ -34,6 +35,8 @@ urlpatterns = [
     path('formresult/<str:name>/', formresult),
     path('helloworld_protected/', foo_protected),  # protected
     path('login/', LoginView.as_view(), name='login'),
-    path("logout/", LogoutView.as_view(), name='logout'),
+    path('logout/', LogoutView.as_view(), name='logout'),
+    path('data/', ItemListView.as_view(), name='data'),
+    path('datatable/', serverside_print),
 
 ]
